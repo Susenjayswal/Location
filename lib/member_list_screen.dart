@@ -1,17 +1,49 @@
 import 'package:flutter/material.dart';
 
+import 'location_screen.dart';
+import 'member.dart';
+
 class MemberListScreen extends StatelessWidget {
-  // Add the key parameter to the constructor
-  const MemberListScreen({Key? key}) : super(key: key);
+  final List<Member> members = [
+    Member('John Doe'),
+    Member('Jane Doe'),
+    Member('Alice Smith'),
+    Member('Bob Johnson'),
+    Member('Charlie Brown'),
+    Member('David Wilson'),
+    Member('Emily Davis'),
+    // Add as many members as you want here
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Member List'),
+        title: Text('Members'),
       ),
-      body: Center(
-        child: const Text('List of Members will appear here'),
+      body: ListView.builder(
+        itemCount: members.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(members[index].name),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.location_on),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              LocationScreen(member: members[index])),
+                    );
+                  },
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

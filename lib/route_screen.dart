@@ -5,12 +5,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class RouteScreen extends StatelessWidget {
   final List<LatLng> routePoints;
 
-  RouteScreen(this.routePoints);
+  const RouteScreen(this.routePoints, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Route')),
+      appBar: AppBar(title: const Text('Route')),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: routePoints.first,
@@ -18,7 +18,7 @@ class RouteScreen extends StatelessWidget {
         ),
         polylines: {
           Polyline(
-            polylineId: PolylineId('route'),
+            polylineId: const PolylineId('route'),
             points: routePoints,
             color: Colors.blue,
             width: 5,

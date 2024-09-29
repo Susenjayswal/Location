@@ -6,7 +6,7 @@ import 'member.dart'; // Import Member class
 class LocationScreen extends StatelessWidget {
   final Member member;
 
-  LocationScreen({required this.member});
+  const LocationScreen({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LocationScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(
+          const Expanded(
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: LatLng(37.7749, -122.4194), // Example, replace with actual location
@@ -24,10 +24,10 @@ class LocationScreen extends StatelessWidget {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: 200,
             child: ListView(
-              children: [
+              children: const [
                 ListTile(
                   title: Text('Visited Location 1'),
                   subtitle: Text('Time: 10:00 AM'),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,13 +17,15 @@ class MyApp extends StatelessWidget {
 }
 
 class MemberListScreen extends StatelessWidget {
+  const MemberListScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Member List'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('List of Members will appear here'),
       ),
     );
